@@ -1,0 +1,20 @@
+{
+  "name": "crayontask_chat",
+  "version": "1.0.0",
+  "description": "crayond task _websocket chat application ",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev":"nodemon index.js"
+  },
+  "author": "kathir karthik",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "moment": "^2.29.1",
+    "socket.io": "^4.1.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
