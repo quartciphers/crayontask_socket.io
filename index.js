@@ -1,11 +1,10 @@
-
 // Server Config 
 const express = require('express');
 const path = require('path');
 const http = require('http');
 const socketio = require('socket.io');
 const formatMessage = require('./format');
-const {userJoin , currentUser,userLeaves,getRoomUsers} =require('./user');
+const {userJoin , currentUser,userLeaves,getRoomUsers} = require('./user');
 
 
 // MiddleWare Configuration
@@ -23,11 +22,11 @@ io.on('connection',socket=>{
         const user = userJoin(socket.id,username,room);
         socket.join(user.room);
        //Initial Message
-    socket.emit('message',formatMessage(system,'Websocket Chat'));
+      socket.emit('message',formatMessage(system,'Websocket Chat'));
    
 
-    //Users Join Info
-    socket.broadcast.to(user.room).emit('message',formatMessage(system,`${user.username} Joined`));
+      //Users Join Info
+     socket.broadcast.to(user.room).emit('message',formatMessage(system,`${user.username} Joined`));
     
 
       //room Information Extraction 
@@ -67,7 +66,7 @@ io.on('connection',socket=>{
 
 
 
-const PORT =  process.env.PORT;
+const PORT = 3000 || process.env.PORT;
 
 Host.listen(PORT,()=>{
     console.log("Server Starts @",PORT);
